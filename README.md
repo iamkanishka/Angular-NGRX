@@ -1,27 +1,53 @@
-# Statengrx
+# Angular - NGRX
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.3.
+<p align="center">
+<a  target="blank"><img src="https://longnguyenduy.gallerycdn.vsassets.io/extensions/longnguyenduy/angular-ngrx-long/0.0.7/1577265251205/Microsoft.VisualStudio.Services.Icons.Default" width="320" alt="Coder Logo" /></a>
+</p>
 
-## Development server
+What is NgRx?
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+NgRx is a framework for building reactive applications in Angular. NgRx provides state management, isolation of side effects, entity collection management, router bindings, code generation, and developer tools that enhance developers experience when building many different types of applications.
 
-## Code scaffolding
+Why NgRx for State Management?
+NgRx provides state management for creating maintainable explicit applications, by storing single state and the use of actions in order to express state changes.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Serializability
+By normalizing state changes and passing them through observables, NgRx provides serializability and ensures state is predictably stored. This enables to save the state to an external storage, for example, localStorage.
 
-## Build
+In addition, it also allows to inspect, download, upload, and dispatch actions, all from the Store Devtools.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Type Safety
+Type safety is promoted throughout the architecture with reliance on the TypeScript compiler for program correctness.
 
-## Running unit tests
+Encapsulation
+Using NgRx Effects and Store, any interaction with external resources side effects, like network requests, web socket and any business logic can be isolated from the UI. This isolation allows for more pure and simple components, and keep the single responsibility principle.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Testable
+Because Store uses pure functions for changing state and selecting data from state, and the ability to isolate side effects from the UI, testing becomes very straightforward. NgRx also provides tests setup like provideMockStore and provideMockActions for isolated tests, and a better test experience.
 
-## Running end-to-end tests
+Performance
+Store is built on a single immutable data state, making change detection turn into a very easy task using an OnPush strategy. NgRx is also powered by memoized selector functions which optimize state query computations.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+<b> NGRX State Managment LifeCycle</b>
+<p align="center">
+<a  target="blank"><img src="https://ngrx.io/generated/images/guide/store/state-management-lifecycle.png" width="320" alt="Coder Logo" /></a>
+</p>
 
-## Further help
+Why use NgRx Store for State Management?
+NgRx Store provides state management for creating maintainable, explicit applications through the use of single state and actions in order to express state changes. In cases where you don't need a global, application-wide solution to manage state, consider using NgRx ComponentStore which provides a solution for local state management.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+When Should I Use NgRx Store for State Management?
+In particular, you might use NgRx when you build an application with a lot of user interactions and multiple data sources, or when managing state in services are no longer sufficient.
+
+A good guideline that might help answer the question, "Do I need NgRx Store?" is the SHARI principle:
+
+Shared: state that is accessed by many components and services.
+
+Hydrated: state that is persisted and rehydrated from external storage.
+
+Available: state that needs to be available when re-entering routes.
+
+Retrieved: state that must be retrieved with a side-effect.
+
+Impacted: state that is impacted by actions from other sources.
+
