@@ -54,4 +54,5 @@ Impacted: state that is impacted by actions from other sources.
 So We will be Looking These Angular-NGRX  features and Learn as we go on.
 1. Introduction to angular NGRX State Managment -ngrx
 2. Understand Redux Pattern Structure. When to use and not to use NGRX in the Application
-3. 
+3. How Store State,, Actions and Reducers will look like in NGRX Redux Pattern - Angular
+4. Implement Counter Application without NGRX and using and using Input Output Emitters - NGRX
