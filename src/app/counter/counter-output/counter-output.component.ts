@@ -28,6 +28,9 @@ export class CounterOutputComponent implements OnInit, OnDestroy {
 
   ) {
    this.counterSubscription =  this.store.select('counter').subscribe(data => {
+//When the Counter Store is called for updating the counter value the subscription works, but the ngrxtype subscrtiption also gets triggered, it leads to the performnce issue
+//    console.log('Counter Called');
+    
       this.counter = data.counter
     })
 
