@@ -2,18 +2,23 @@
     <div class="row">
         <div class="col-md-12">
             <div class="my-3">
-                <app-counter-output [counter]="counter"></app-counter-output>
+                               <!-- With Implementation of the Input and Output Way -->
+                <!-- <app-counter-output [counter]="counter"></app-counter-output> -->
 
+               <!-- With Implementation of the NGRX Way -->
+             <app-counter-output ></app-counter-output> 
             </div>
 
             <div class="my-3">
-                <app-counter-buttons
+                <!-- With Implementation of the Input and Output Way -->
+                <!-- <app-counter-buttons
                 (increment)="onIncrement()"
                 (decrement)="onDecrement()"
                 (reset)="onReset()"
+         ></app-counter-buttons> -->
 
-                
-                ></app-counter-buttons>
+              <!--With Implementation of the NGRX Way   -->
+                <app-counter-buttons></app-counter-buttons>
 
             </div>
        

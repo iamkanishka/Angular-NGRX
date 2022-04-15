@@ -6,23 +6,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./counter.component.css']
 })
 export class CounterComponent implements OnInit {
-
-  counter:number=0
+ //Removing below counter varaible because of implememntation of NGRX counter variable in the NGRX Store 
+ // counter:number=0
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  onIncrement(){
-    this.counter++
-  }
+ //Removing below functionalities because of implememntation of NGRX
+//   onIncrement(){
+//     this.counter++
+//   }
  
-  onDecrement(){
-   this.counter--
- }
- onReset(){
-   this.counter=0
- }
+//   onDecrement(){
+//    this.counter--
+//  }
+//  onReset(){
+//    this.counter=0
+//  }
  
 
 }
