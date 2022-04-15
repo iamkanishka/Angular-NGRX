@@ -63,3 +63,5 @@ So We will be Looking These Angular-NGRX  features and Learn as we go on.
 9. Using CreateFeatureSeletor and CreateSelector for getting the store data - Angular NGRX
 10. Implement Routing for the State Mangment NGRX Appliacation - - Angular NGRX
 11. Install Redux Chrome Extension and ngrx store dev tools for debugging Angular NGRX Application
+12. Introduction for Combining all the Different Modules of teh state into single AppState - Angular NGRX
+13. 
