@@ -57,3 +57,4 @@ So We will be Looking These Angular-NGRX  features and Learn as we go on.
 3. How Store State,, Actions and Reducers will look like in NGRX Redux Pattern - Angular
 4. Implement Counter Application without NGRX and using and using Input Output Emitters - NGRX
 5. Implement the Counter Applicatioon using NGRX Store, Action and Reducers, Angular- NGRX
+6. Refactoring Store state Using Asyn Pipre for Selecting Observables state data - Angular NGRX
