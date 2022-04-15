@@ -15,6 +15,7 @@ import { HeaderComponent } from './shared/components/header/header.component';
 import { PostListsComponent } from './posts/post-lists/post-lists.component';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from 'src/environments/environment';
+import { appReducer } from './Store/app.state';
 
 
 @NgModule({
@@ -32,7 +33,7 @@ import { environment } from 'src/environments/environment';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    StoreModule.forRoot({ counter: counterReducer }),
+    StoreModule.forRoot(appReducer),
        // Instrumentation must be imported after importing StoreModule (config is optional)
   StoreDevtoolsModule.instrument({
        // maxAge: 25, // Retains last 25 states

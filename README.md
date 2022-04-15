@@ -64,4 +64,4 @@ So We will be Looking These Angular-NGRX  features and Learn as we go on.
 10. Implement Routing for the State Mangment NGRX Appliacation - - Angular NGRX
 11. Install Redux Chrome Extension and ngrx store dev tools for debugging Angular NGRX Application
 12. Introduction for Combining all the Different Modules of teh state into single AppState - Angular NGRX
-13. 
+13. Implement the AppState in teh Angular NGRX Application by Combining all teh Fearure State
