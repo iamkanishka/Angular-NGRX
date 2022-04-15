@@ -59,5 +59,5 @@ So We will be Looking These Angular-NGRX  features and Learn as we go on.
 5. Implement the Counter Applicatioon using NGRX Store, Action and Reducers, Angular- NGRX
 6. Refactoring Store state Using Asyn Pipre for Selecting Observables state data - Angular NGRX
 7. Pass Custom Data using Props in Actions. Update State Datat in Reducer with Data - Angular NGRX
-8. Disadvantagesof not using crrate seletctors for selecting the store Data in the NGRX - Angular - NGRX
+8. Disadvantages of not using crrate seletctors for selecting the store Data in the NGRX - Angular - NGRX
 9. 
