@@ -62,3 +62,4 @@ So We will be Looking These Angular-NGRX  features and Learn as we go on.
 8. Disadvantages of not using crrate seletctors for selecting the store Data in the NGRX - Angular - NGRX
 9. Using CreateFeatureSeletor and CreateSelector for getting the store data - Angular NGRX
 10. Implement Routing for the State Mangment NGRX Appliacation - - Angular NGRX
+11. Install Redux Chrome Extension and ngrx store dev tools for debugging Angular NGRX Application
