@@ -51,3 +51,5 @@ Retrieved: state that must be retrieved with a side-effect.
 
 Impacted: state that is impacted by actions from other sources.
 
+So We will be Looking These Angular-Routing  features and Learn as we go on.
+1. Introduction to angular NGRX State Managment -ngrx
