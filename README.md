@@ -60,4 +60,4 @@ So We will be Looking These Angular-NGRX  features and Learn as we go on.
 6. Refactoring Store state Using Asyn Pipre for Selecting Observables state data - Angular NGRX
 7. Pass Custom Data using Props in Actions. Update State Datat in Reducer with Data - Angular NGRX
 8. Disadvantages of not using crrate seletctors for selecting the store Data in the NGRX - Angular - NGRX
-9. 
+9. Using CreateFeatureSeletor and CreateSelector for getting the store data - Angular NGRX

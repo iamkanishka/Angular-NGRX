@@ -1,5 +1,11 @@
 <div>
-    <h6>{{this.ngrxType}}</h6>
+    <h6>Without Observable</h6>
+    <h6>NGRXType: {{this.ngrxType}}</h6>
+</div>
+
+<div>
+    <h6>WithObservable</h6>
+   <h6>NGRXType$: {{(ngrxType$ | async )}}</h6>
 </div>
 <div>
     <input type="text" placeholder="Enter Value" [(ngModel)]="value" type="number" >
