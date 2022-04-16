@@ -6,8 +6,7 @@
             <div class="mb-3">
                 <label for="email">Email</label>
                 <input type="text" class="form-control" formControlName="loginemail">
-                <span class="help-block" *ngIf="loginFormControls.loginemail.valid && loginFormControls.loginemail.touched">Please Enter Email</span>
-                <span class="help-block" *ngIf="loginFormControls.loginemail.errors.required"> Email is required</span>
+            
             
 
                 
@@ -15,10 +14,10 @@
             <div class="mb-3">
                 <label for="email">Password</label>
                 <input type="password" class="form-control" formControlName="loginpassword">
-               <span class="help-block" *ngIf="loginFormControls.loginpassword.errors.required"> Email is required</span>
+            
             </div>
             <div class="mb-3">
-         <button class="btn btn-primary" (click)="onLogin()" >Login</button>
+         <button class="btn btn-primary" (click)="onLogin()" [disabled]="this.loginForm.invalid" >Login</button>
             </div>
         </form>
     </div>
