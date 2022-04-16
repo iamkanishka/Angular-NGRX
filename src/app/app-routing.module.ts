@@ -11,6 +11,8 @@ const routes: Routes = [
   {path:'counter',component:CounterComponent},
   {path:'posts',component:PostListsComponent,children:[
     {path:'add-post',component:AddPostComponent},
+    {path:'edit-post/:id',component:AddPostComponent},
+
 
   ]},
 
