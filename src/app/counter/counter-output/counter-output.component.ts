@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable, Subscription } from 'rxjs';
+import { AppState } from 'src/app/Store/app.state';
 import { getCounter } from '../State/counter.selectors';
 import { counterState } from '../State/counter.state';
 
@@ -25,7 +26,11 @@ export class CounterOutputComponent implements OnInit, OnDestroy {
     //  private store: Store<{counter:{counter:number}}>,
 
     //withcounterState Interface
-    private store: Store<{ counter: counterState }>
+   // private store: Store<{ counter: counterState }>
+
+  //Importing  with counter State Interface with App state
+  private store: Store<AppState>
+
 
   ) {
     //    this.counterSubscription =  this.store.select('counter').subscribe(data => {

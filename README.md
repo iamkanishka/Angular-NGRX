@@ -65,3 +65,4 @@ So We will be Looking These Angular-NGRX  features and Learn as we go on.
 11. Install Redux Chrome Extension and ngrx store dev tools for debugging Angular NGRX Application
 12. Introduction for Combining all the Different Modules of teh state into single AppState - Angular NGRX
 13. Implement the AppState in teh Angular NGRX Application by Combining all teh Fearure State
+14. Get Async Data from ngrx store using create Selector and Display it in the Table

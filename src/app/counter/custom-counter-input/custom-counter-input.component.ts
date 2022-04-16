@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { AppState } from 'src/app/Store/app.state';
 import { changeNGRXname, customIncrement } from '../State/counter.action';
 import { getNGRXType } from '../State/counter.selectors';
 import { counterState } from '../State/counter.state';
@@ -16,7 +17,16 @@ export class CustomCounterInputComponent implements OnInit {
   value!: number
   ngrxType!: string
   ngrxType$!:Observable<string>
-  constructor(private store: Store<{ counter: counterState }>) {
+  constructor(
+  
+    //withcounterState Interface
+    //private store: Store<{ counter: counterState }>
+
+  //Importing  with counter State Interface with App state
+  private store: Store<AppState>
+    
+    
+    ) {
     // this.store.select('counter').subscribe(state => {
     //   //When the Counter Store is called for updating the counter value the subscription works, but the ngrxtype subscrtiption also gets triggered, it leads to the performnce issue
     //   // console.log(state,'Channel Name Observable Called');
