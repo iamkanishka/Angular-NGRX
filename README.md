@@ -72,3 +72,5 @@ So We will be Looking These Angular-NGRX  features and Learn as we go on.
 18. Update Post in NGRX store immutable with action in Angular NGRX
 19. Delete Post in the NGRX stor state in Angular NGRX 
 20. Implement LazyLoading for the routes in the NGRX Application
+21. Lazy Load the ngrx state using for Feature store Module in Angular NGRX
+22. 

@@ -6,6 +6,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PostListsComponent } from './post-lists/post-lists.component';
 import { AddPostComponent } from './add-post/add-post.component';
 import { EditPostComponent } from './edit-post/edit-post.component';
+import { StoreModule } from '@ngrx/store';
+import { postReducer } from './State/posts.reducers';
+import { POSTS_STATE_NAME } from './State/posts.selector';
 
 
 const routes: Routes = [
@@ -29,6 +32,8 @@ const routes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
+       //you can initialize the reducer in app, if theres is in need of the NGRX process whne the app loads, buy tou can initialize the corresponding NGRX Reducers in teh Corresponding modules 
+     StoreModule.forFeature(POSTS_STATE_NAME,postReducer),
     FormsModule, ReactiveFormsModule 
   ],
    exports: [RouterModule]
