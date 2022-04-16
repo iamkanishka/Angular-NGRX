@@ -3,7 +3,9 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Post } from 'src/app/models/posts.model';
 import { AppState } from 'src/app/Store/app.state';
-import { getPosts } from '../State/posts.selector';
+import { deletePost } from '../State/posts.actions';
+import { getPosts,} from '../State/posts.selector';
+
 
 @Component({
   selector: 'app-post-lists',
@@ -21,6 +23,11 @@ export class PostListsComponent implements OnInit {
    }
 
   ngOnInit(): void {
+  }
+  ondeletePost(id:string){
+if(confirm("Sure you want you Delete Post")){
+ this.store.dispatch(deletePost({id}))
+}
   }
 
 }
