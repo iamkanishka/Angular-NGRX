@@ -71,3 +71,4 @@ So We will be Looking These Angular-NGRX  features and Learn as we go on.
 17. Props in NGEX Selector. Sending arguments to the state selectors for updating Post  - Angular
 18. Update Post in NGRX store immutable with action in Angular NGRX
 19. Delete Post in the NGRX stor state in Angular NGRX 
+20. Implement LazyLoading for the routes in the NGRX Application
