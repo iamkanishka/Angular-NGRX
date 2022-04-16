@@ -1,7 +1,15 @@
 <div class="container">
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-6">
    <h3>Posts Lists</h3>
+
+
+
+<div>
+    <button [routerLink]="['/posts/add-post']" class="btn btn-primary">Add Post</button>
+</div>
+
+
 <table class="table table-striped" *ngIf="posts$ | async as postsData" >
 <!-- <table class="table table-striped"> -->
 
@@ -23,5 +31,9 @@
     </tbody>
 </table>
         </div>
+        <div class="col-md-6">
+            <router-outlet></router-outlet>
+        </div>
+
     </div>
 </div>

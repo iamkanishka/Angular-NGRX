@@ -9,13 +9,15 @@ import { CounterButtonsComponent } from './counter/counter-buttons/counter-butto
 import { StoreModule } from '@ngrx/store';
 import { counterReducer } from './counter/State/counter.reducer';
 import { CustomCounterInputComponent } from './counter/custom-counter-input/custom-counter-input.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { PostListsComponent } from './posts/post-lists/post-lists.component';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from 'src/environments/environment';
 import { appReducer } from './Store/app.state';
+import { AddPostComponent } from './posts/add-post/add-post.component';
+
 
 
 @NgModule({
@@ -27,7 +29,8 @@ import { appReducer } from './Store/app.state';
     CustomCounterInputComponent,
     HomeComponent,
     HeaderComponent,
-    PostListsComponent
+    PostListsComponent,
+    AddPostComponent
   ],
   imports: [
     BrowserModule,
@@ -40,6 +43,7 @@ import { appReducer } from './Store/app.state';
         logOnly: environment.production, // Restrict extension to log-only mode
        // autoPause: true, // Pauses recording actions and state changes when the extension window is not open
       }),
+      ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
