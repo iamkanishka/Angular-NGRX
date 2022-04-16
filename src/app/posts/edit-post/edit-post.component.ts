@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Post } from 'src/app/models/posts.model';
 import { AppState } from 'src/app/Store/app.state';
-import { addPost } from '../State/posts.actions';
+import { editPost } from '../State/posts.actions';
 import { getPostsById } from '../State/posts.selector';
 
 @Component({
@@ -15,16 +15,17 @@ import { getPostsById } from '../State/posts.selector';
 export class EditPostComponent implements OnInit {
 
   postForm:FormGroup
-
+ postId:string
  
-  constructor( private store: Store<AppState>,private activatedRoute:ActivatedRoute){ 
+  constructor( private store: Store<AppState>,private activatedRoute:ActivatedRoute, private router:Router){ 
     this.activatedRoute.paramMap.subscribe((params)=>{
   
-  const id = params.get('id')
-      this.store.select(getPostsById,{id}).subscribe((data:Post)=>{
+      this.postId = params.get('id')
+      const id = params.get('id')
+      this.store.select(getPostsById,{id }).subscribe((data:Post)=>{
    this.postForm = new FormGroup({
-          title: new FormControl(data.title,[Validators.required, Validators.minLength(15)]),
-          description: new FormControl(data.description,[Validators.required, Validators.minLength(15)])
+          title: new FormControl(data.title,[Validators.required, Validators.minLength(5)]),
+          description: new FormControl(data.description,[Validators.required, Validators.minLength(5)])
     
         })
       })
@@ -63,13 +64,15 @@ export class EditPostComponent implements OnInit {
     }
   }
 
-onAddPost(){
+onUpdatePost(){
   console.log(this.postForm.value);
   const post:Post ={
+    id:this.postId,
     title : this.postForm.value.title,
     description : this.postForm.value.description
   }
-  this.store.dispatch(addPost({post}))
+  this.store.dispatch(editPost({post}))
+  this.router.navigate(['/posts'])
 }
 
 }

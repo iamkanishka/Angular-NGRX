@@ -17,8 +17,8 @@ export class AddPostComponent implements OnInit {
  
   constructor( private store: Store<AppState>){ 
     this.postForm = new FormGroup({
-      title: new FormControl(null,[Validators.required, Validators.minLength(15)]),
-      description: new FormControl(null,[Validators.required, Validators.minLength(15)])
+      title: new FormControl(null,[Validators.required, Validators.minLength(5)]),
+      description: new FormControl(null,[Validators.required, Validators.minLength(5)])
 
     })
   }
