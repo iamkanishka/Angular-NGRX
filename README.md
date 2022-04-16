@@ -68,3 +68,4 @@ So We will be Looking These Angular-NGRX  features and Learn as we go on.
 14. Get Async Data from ngrx store using create Selector and Display it in the Table
 15. Create Reactive Form for Adding Post And Apply validation isung child routing - Angular ngrx\
 16. Adding Posts into ngrx state submitted by the FOrm -  Angular NGRX
+17. Props in NGEX Selector. Sending arguments to the state selectors for updating Post  - Angular
