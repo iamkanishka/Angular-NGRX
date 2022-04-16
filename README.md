@@ -73,4 +73,4 @@ So We will be Looking These Angular-NGRX  features and Learn as we go on.
 19. Delete Post in the NGRX stor state in Angular NGRX 
 20. Implement LazyLoading for the routes in the NGRX Application
 21. Lazy Load the ngrx state using for Feature store Module in Angular NGRX
-22. 
+22. Design Auth Login Module in NGRX Angular Application
