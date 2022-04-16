@@ -74,3 +74,4 @@ So We will be Looking These Angular-NGRX  features and Learn as we go on.
 20. Implement LazyLoading for the routes in the NGRX Application
 21. Lazy Load the ngrx state using for Feature store Module in Angular NGRX
 22. Design Auth Login Module in NGRX Angular Application
+23. NGrx Effects Library Introduction Manabge HTTP calls with Effects - Angular NGRX
