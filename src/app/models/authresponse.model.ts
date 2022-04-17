@@ -6,5 +6,5 @@ export interface AuthResponseData {
     kind: string
     localId: string
     refreshToken: string
-    registered: true
+    registered?: true
 }

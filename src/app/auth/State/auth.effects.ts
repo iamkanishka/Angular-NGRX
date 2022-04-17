@@ -1,6 +1,6 @@
 import { createEffect, ofType, Actions } from "@ngrx/effects";
 import { AuthService } from "src/app/Services/auth.service";
-import { loginStart, loginSuccess } from "./auth.action";
+import { loginStart, loginSuccess, signupStart, signupSuccess } from "./auth.action";
 import { catchError, exhaustMap, map, tap } from 'rxjs/operators'
 import { Injectable } from "@angular/core";
 import { AuthResponseData } from "src/app/models/authresponse.model";
@@ -37,10 +37,44 @@ export class AuthEffects {
     })
 
 
+signup$ = createEffect(() => {
+
+        return this.action$.pipe(ofType(signupStart), exhaustMap((action) => {
+            return this.authservice.signup(action.email, action.password).pipe(map((data: AuthResponseData) => {
+                this.store.dispatch(setloadingspinner({ status: false }))
+                this.store.dispatch(setErrorMessage({ message: '' }))
+
+
+                const user = this.authservice.formatUser(data)
+                return signupSuccess({ user });
+            }),
+                catchError((errResp) => {
+                    this.store.dispatch(setloadingspinner({ status: false }))
+                  console.log(errResp.error.error.message);
+                  
+                    const errorMessage = this.authservice.getErrorMessage(errResp.error.error.message)
+                    return of(setErrorMessage({ message: errorMessage }))
+
+                })
+            )
+        }))
+    })
+
+
+
+    
+    // signupRedirect$ = createEffect(() => {
+
+    //     return this.action$.pipe(ofType(signupSuccess),
+    //         tap((action) => {
+    //             this.router.navigate(['/'])
+    //         }))
+    // }, { dispatch: false })
+
 
     loginRedirect$ = createEffect(() => {
 
-        return this.action$.pipe(ofType(loginSuccess),
+        return this.action$.pipe(ofType(...[loginSuccess,signupSuccess]),
             tap((action) => {
                 this.router.navigate(['/'])
             }))
