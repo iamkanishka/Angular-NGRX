@@ -1,1 +1,24 @@
-<p>signup works!</p>
+<div class="row">
+    <div class="col-md-6 offset-md-3 ">
+        <h3>Sign Up</h3>
+        <hr>
+        <form [formGroup]="signupForm">
+            <div class="mb-3">
+                <label for="email">Email</label>
+                <input type="text" class="form-control" formControlName="signupemail">
+            
+            
+
+                
+            </div>
+            <div class="mb-3">
+                <label for="email">Password</label>
+                <input type="password" class="form-control" formControlName="signuppassword">
+            
+            </div>
+            <div class="mb-3">
+         <button class="btn btn-primary" (click)="onSignup()" [disabled]="this.signupForm.invalid" >SignUp</button>
+            </div>
+        </form>
+    </div>
+</div>

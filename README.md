@@ -82,3 +82,4 @@ So We will be Looking These Angular-NGRX  features and Learn as we go on.
 28. Implement Shared Loading Spinner Componenet in the NGRX Shared Module
 29. Implement Error Handling in ngrx Effects and Show Error Meessage when API Fails - Angular NGRX
 30. Navigating the page using routes with Effects after login Success in ANgular NGRX Application
+31. Create Signup Form and Ngrx actions in the angular ngrx application
