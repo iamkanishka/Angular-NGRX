@@ -77,5 +77,6 @@ So We will be Looking These Angular-NGRX  features and Learn as we go on.
 23. NGRX Effects Library Introduction Manabge HTTP calls with Effects - Angular NGRX
 24. How to Define the NGRX Effect in Angular NGRX Application
 25. Adding Auth Features State for the Auth Module in teh Angular NGRX Application
-26. Save the User Token data from Login in NGRX State in Angular NGRX Application
-27. Implement Shared Loading Spinner Componenet in the NGRX Shared Module
+26. Implement first Effects file in  our Angular Application
+27. Save the User Token data from Login in NGRX State in Angular NGRX Application
+28. Implement Shared Loading Spinner Componenet in the NGRX Shared Module
