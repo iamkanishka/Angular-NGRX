@@ -18,6 +18,7 @@ import { RouterModule } from '@angular/router';
 import {HttpClientModule} from '@angular/common/http';
 import { LoadingSpinnerComponent } from './shared/components/loading-spinner/loading-spinner.component'
 import { appReducer } from './Store/app.state';
+import { AuthEffects } from './auth/State/auth.effects';
 
 
 
@@ -50,7 +51,7 @@ import { appReducer } from './Store/app.state';
       logOnly: environment.production, // Restrict extension to log-only mode
       // autoPause: true, // Pauses recording actions and state changes when the extension window is not open
     }),
-    EffectsModule.forRoot([])
+    EffectsModule.forRoot([AuthEffects])
   
 
   ],

@@ -33,7 +33,8 @@ const routes: Routes = [
     HttpClientModule,
     ReactiveFormsModule,
 
-    EffectsModule.forFeature([AuthEffects])
+    //Need to integrate in the app.module.ts
+   // EffectsModule.forFeature([AuthEffects])
 
 
   ]

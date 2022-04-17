@@ -1,7 +1,7 @@
 import { createEffect, ofType, Actions } from "@ngrx/effects";
 import { AuthService } from "src/app/Services/auth.service";
-import { loginStart, loginSuccess, signupStart, signupSuccess } from "./auth.action";
-import { catchError, exhaustMap, map, tap } from 'rxjs/operators'
+import { autoLoginAction, loginStart, loginSuccess, signupStart, signupSuccess } from "./auth.action";
+import { catchError, exhaustMap, map, mergeMap, tap } from 'rxjs/operators'
 import { Injectable } from "@angular/core";
 import { AuthResponseData } from "src/app/models/authresponse.model";
 import { Store } from '@ngrx/store';
@@ -20,9 +20,8 @@ export class AuthEffects {
             return this.authservice.login(action.email, action.password).pipe(map((data: AuthResponseData) => {
                 this.store.dispatch(setloadingspinner({ status: false }))
                 this.store.dispatch(setErrorMessage({ message: '' }))
-
-
                 const user = this.authservice.formatUser(data)
+                this.authservice.setUserLocalStorage(user)
                 return loginSuccess({ user });
             }),
                 catchError((errResp) => {
@@ -43,9 +42,9 @@ signup$ = createEffect(() => {
             return this.authservice.signup(action.email, action.password).pipe(map((data: AuthResponseData) => {
                 this.store.dispatch(setloadingspinner({ status: false }))
                 this.store.dispatch(setErrorMessage({ message: '' }))
+              const user = this.authservice.formatUser(data)
+              this.authservice.setUserLocalStorage(user)
 
-
-                const user = this.authservice.formatUser(data)
                 return signupSuccess({ user });
             }),
                 catchError((errResp) => {
@@ -77,6 +76,17 @@ signup$ = createEffect(() => {
         return this.action$.pipe(ofType(...[loginSuccess,signupSuccess]),
             tap((action) => {
                 this.router.navigate(['/'])
+            }))
+    }, { dispatch: false })
+
+
+    autoLogin$ = createEffect(() => {
+
+        return this.action$.pipe(ofType(autoLoginAction),
+           map((action) => {
+               const user = this.authservice.getUserFromLocalStorage()
+               console.log(user);
+               
             }))
     }, { dispatch: false })
 }

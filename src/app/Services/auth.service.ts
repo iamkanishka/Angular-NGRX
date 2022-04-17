@@ -11,6 +11,7 @@ import { User } from '../models/user.model';
 })
 export class AuthService {
 
+  timeoutInterval :any
   constructor(private httpClient:HttpClient) { }
 
 
@@ -43,4 +44,37 @@ export class AuthService {
 default: return 'Unknown Error Occured'
     }
   }
+
+  setUserLocalStorage(user:User){
+   localStorage.setItem('userData',JSON.stringify(user))
+
+   this.runTimeOutInterval(user)
+
+
+  }
+
+  getUserFromLocalStorage(){
+    const stringedUserData = localStorage.getItem('userData')
+    if(stringedUserData){
+      const userData = JSON.parse(stringedUserData)
+      const expirationDate = new Date(userData.expirateionDate)
+      const user = new User(userData.email,userData.token,userData.localId,expirationDate)
+   this.runTimeOutInterval(user)
+      return user
+
+    }else{
+      return null
+    }
+  }
+
+  runTimeOutInterval(user){
+    const todaysDate = new Date().getTime();
+    const expirationDate = user.getexpiryDate().getTime();
+    const timeInterval =  expirationDate - todaysDate
+    
+    this.timeoutInterval = setTimeout(()=>{
+    
+    },timeInterval)
+  }
+
 }
