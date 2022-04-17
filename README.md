@@ -81,3 +81,4 @@ So We will be Looking These Angular-NGRX  features and Learn as we go on.
 27. Save the User Token data from Login in NGRX State in Angular NGRX Application
 28. Implement Shared Loading Spinner Componenet in the NGRX Shared Module
 29. Implement Error Handling in ngrx Effects and Show Error Meessage when API Fails - Angular NGRX
+30. Navigating the page using routes with Effects after login Success in ANgular NGRX Application
