@@ -6,6 +6,7 @@
     <div class="col-md-12">
       <div class="my-3">
         <!-- <app-counter></app-counter> -->
+        <div class="alert alert-danger" *ngIf="this.erroMessage |  async as error" >{{error}}</div>
 <router-outlet></router-outlet>
       </div>
  </div>
