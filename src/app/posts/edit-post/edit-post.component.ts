@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Post } from 'src/app/models/posts.model';
 import { AppState } from 'src/app/Store/app.state';
-import { editPost } from '../State/posts.actions';
+import { editPost, updatePosts } from '../State/posts.actions';
 import { getPostsById } from '../State/posts.selector';
 
 @Component({
@@ -71,7 +71,7 @@ onUpdatePost(){
     title : this.postForm.value.title,
     description : this.postForm.value.description
   }
-  this.store.dispatch(editPost({post}))
+  this.store.dispatch(updatePosts({post}))
   this.router.navigate(['/posts'])
 }
 

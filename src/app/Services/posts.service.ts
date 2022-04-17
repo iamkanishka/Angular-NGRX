@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http'
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http'
 
 
 import { Store } from '@ngrx/store';
@@ -12,48 +12,59 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class PostsService {
-  constructor(private httpClient:HttpClient,private store:Store<AppState>) { }
+  constructor(private httpClient: HttpClient, private store: Store<AppState>) { }
 
-  getPosts():Observable<Post[]> {
+  getPosts(): Observable<Post[]> {
     let searchParams = new HttpParams();
-    searchParams =searchParams.append('custom','hai')
-    searchParams =searchParams.append('name','kamishka')
+    searchParams = searchParams.append('custom', 'hai')
+    searchParams = searchParams.append('name', 'kamishka')
 
-  //  return this.httpClient.get<Post[]>('https://ng-complete-guide-2abc1-default-rtdb.firebaseio.com/post.json' )
+    //  return this.httpClient.get<Post[]>('https://ng-complete-guide-2abc1-default-rtdb.firebaseio.com/post.json' )
 
-  
+
     return this.httpClient
-      .get< Post[]>(
-        'https://ng-complete-guide-2abc1-default-rtdb.firebaseio.com/post.json',{
-          headers:new HttpHeaders({
-            'custom-header':'Get Request'
-          }),
-          params: new HttpParams().set('custom','hai')
-        }
+      .get<Post[]>(
+        'https://ng-complete-guide-2abc1-default-rtdb.firebaseio.com/post.json'
       )
       .pipe(
         map((response) => {
           let posts = [];
           for (let key in response) {
-            posts.push({ ...response[key], key });
+            posts.push({ ...response[key], id: key });
           }
           return posts;
         })
       );
   }
 
-  
-  addPost(postdata:Post ):Observable<{name:string}> {
-  return this.httpClient.post<{name:string}>(
+
+  addPost(postdata: Post): Observable<{ name: string }> {
+    return this.httpClient.post<{ name: string }>(
       'https://ng-complete-guide-2abc1-default-rtdb.firebaseio.com/post.json',
-      postdata,{
-        headers:new HttpHeaders({
-          'custom-header':'Post Request'
-        }),
-        params: new HttpParams().set('custom','hai'),
-       // observe: 'response'
-      }
+      postdata, {
+      headers: new HttpHeaders({
+        'custom-header': 'Post Request'
+      }),
+
+      // observe: 'response'
+    }
     );
   }
+
+  updatePost(postdata: Post): Observable<{ name: string }> {
+    const postData = {
+      [postdata.id]: { title: postdata.title, description: postdata.description }
+    }
+    return this.httpClient.patch<{ name: string }>(
+      'https://ng-complete-guide-2abc1-default-rtdb.firebaseio.com/post.json',
+      postData,
+    );
+  }
+
+  deletePost(id: string) {
+
+    return this.httpClient.delete(`https://ng-complete-guide-2abc1-default-rtdb.firebaseio.com/post.json?id=${id}`);
+  }
+
 
 }

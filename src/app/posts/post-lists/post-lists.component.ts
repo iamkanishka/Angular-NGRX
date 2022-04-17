@@ -3,7 +3,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Post } from 'src/app/models/posts.model';
 import { AppState } from 'src/app/Store/app.state';
-import { deletePost, loadPosts } from '../State/posts.actions';
+import { deletePost, deletePosts, loadPosts } from '../State/posts.actions';
 import { getPosts,} from '../State/posts.selector';
 
 
@@ -27,7 +27,7 @@ export class PostListsComponent implements OnInit {
   }
   ondeletePost(id:string){
 if(confirm("Sure you want you Delete Post")){
- this.store.dispatch(deletePost({id}))
+ this.store.dispatch(deletePosts({id}))
 }
   }
 

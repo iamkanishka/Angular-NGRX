@@ -1,5 +1,5 @@
 import { createReducer, on } from "@ngrx/store"
-import { addPost, addPostsSuccess, deletePost, editPost, loadPostsSuccess } from "./posts.actions"
+import { addPost, addPostsSuccess, deletePost, deletePostSucess, editPost, loadPostsSuccess, updatePosts, updatePostsSuccess } from "./posts.actions"
 import { initialState } from "./posts.state"
 
 
@@ -23,7 +23,20 @@ on(addPostsSuccess,(state,action)=>{
         posts:[...state.posts, post]
     }
 }),
-on(editPost,(state,action)=>{
+// on(editPost,(state,action)=>{
+//     console.log(action.post);
+    
+//  const updatedPosts  = state.posts.map((post)=>{
+//      return action.post.id === post.id? action.post :post
+//  })
+
+//  return{
+//      ...state,
+//      posts:updatedPosts
+//  }
+// }),
+
+on(updatePostsSuccess,(state,action)=>{
     console.log(action.post);
     
  const updatedPosts  = state.posts.map((post)=>{
@@ -36,18 +49,31 @@ on(editPost,(state,action)=>{
  }
 }),
 
-on(deletePost,(state,{id})=>{
+// on(deletePost,(state,{id})=>{
 
     
- const updatedPosts  = state.posts.filter((post)=>{
-     return post.id != id 
- })
+//  const updatedPosts  = state.posts.filter((post)=>{
+//      return post.id != id 
+//  })
 
- return{
-     ...state,
-     posts:updatedPosts
- }
-}),
+//  return{
+//      ...state,
+//      posts:updatedPosts
+//  }
+// }),
+
+on(deletePostSucess,(state,{id})=>{
+
+    
+    const updatedPosts  = state.posts.filter((post)=>{
+        return post.id != id 
+    })
+   
+    return{
+        ...state,
+        posts:updatedPosts
+    }
+   }),
 
 
 on(loadPostsSuccess,(state,action)=>{

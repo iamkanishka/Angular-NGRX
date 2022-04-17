@@ -11,6 +11,11 @@ export const LOAD_POSTS_SUCCESS = '[posts page] load posts success'
 export const ADD_POSTS = '[posts page] Add post'
 export const ADD_POSTS_SUCCESS = '[posts page] add posts success'
 
+export const UPDATE_POST = '[posts page] udpate post'
+export const UPDATE_POSTS_SUCCESS = '[posts page] update posts success'
+
+export const DELETE_POST = '[posts page] delete post'
+export const DELETE_POSTS_SUCCESS = '[posts page] delete posts success'
 
 
 //Local Data
@@ -25,3 +30,10 @@ export const loadPostsSuccess = createAction(LOAD_POSTS_SUCCESS, props<{posts:Po
 
 export const addPosts = createAction(ADD_POSTS, props<{post:Post}>())
 export const addPostsSuccess = createAction(ADD_POSTS_SUCCESS, props<{post:Post}>())
+
+
+export const updatePosts = createAction(UPDATE_POST, props<{post:Post}>())
+export const updatePostsSuccess = createAction(UPDATE_POSTS_SUCCESS, props<{post:Post}>())
+
+export const deletePosts= createAction(DELETE_POST, props<{id:string}>())
+export const deletePostSucess = createAction(DELETE_POSTS_SUCCESS, props<{id:string}>())
