@@ -84,4 +84,4 @@ So We will be Looking These Angular-NGRX  features and Learn as we go on.
 30. Navigating the page using routes with Effects after login Success in ANgular NGRX Application
 31. Create Signup Form and Ngrx actions in the angular ngrx application
 32. Add Signup Effects to make API Call and save the user token in the ngrx state- Angular NGRX
-33. Implement auto Login Functionality in the NGRX Angular Applicatiom
+33. Implement auto Login Functionality in the NGRX Angular Application
