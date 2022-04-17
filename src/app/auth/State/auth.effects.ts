@@ -1,6 +1,6 @@
 import { createEffect, ofType, Actions } from "@ngrx/effects";
 import { AuthService } from "src/app/Services/auth.service";
-import { autoLoginAction, loginStart, loginSuccess, signupStart, signupSuccess } from "./auth.action";
+import { autoLoginAction, loginStart, loginSuccess, LogoutAction, signupStart, signupSuccess } from "./auth.action";
 import { catchError, exhaustMap, map, mergeMap, tap } from 'rxjs/operators'
 import { Injectable } from "@angular/core";
 import { AuthResponseData } from "src/app/models/authresponse.model";
@@ -22,7 +22,7 @@ export class AuthEffects {
                 this.store.dispatch(setErrorMessage({ message: '' }))
                 const user = this.authservice.formatUser(data)
                 this.authservice.setUserLocalStorage(user)
-                return loginSuccess({ user });
+                return loginSuccess({ user,redirect:true });
             }),
                 catchError((errResp) => {
                     this.store.dispatch(setloadingspinner({ status: false }))
@@ -45,7 +45,7 @@ signup$ = createEffect(() => {
               const user = this.authservice.formatUser(data)
               this.authservice.setUserLocalStorage(user)
 
-                return signupSuccess({ user });
+                return signupSuccess({ user ,redirect:true});
             }),
                 catchError((errResp) => {
                     this.store.dispatch(setloadingspinner({ status: false }))
@@ -75,7 +75,9 @@ signup$ = createEffect(() => {
 
         return this.action$.pipe(ofType(...[loginSuccess,signupSuccess]),
             tap((action) => {
+               if(action.redirect){
                 this.router.navigate(['/'])
+               }
             }))
     }, { dispatch: false })
 
@@ -83,10 +85,23 @@ signup$ = createEffect(() => {
     autoLogin$ = createEffect(() => {
 
         return this.action$.pipe(ofType(autoLoginAction),
-           map((action) => {
+           mergeMap((action) => {
                const user = this.authservice.getUserFromLocalStorage()
-               console.log(user);
+          
+               return of(loginSuccess({user,redirect:false }))
+               
+            }))
+    }, { dispatch: true })
+
+
+Logout$ = createEffect(() => {
+
+        return this.action$.pipe(ofType(LogoutAction),
+          map((action) => {
+        this.authservice.logout()
+        this.router.navigate(['auth'])
                
             }))
     }, { dispatch: false })
+
 }

@@ -4,6 +4,10 @@ import { environment } from 'src/environments/environment';
 import {AuthResponseData} from '../models/authresponse.model'
 import { Observable } from 'rxjs';
 import { User } from '../models/user.model';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/Store/app.state';
+import { LogoutAction } from '../auth/State/auth.action';
+
 
 
 @Injectable({
@@ -12,7 +16,7 @@ import { User } from '../models/user.model';
 export class AuthService {
 
   timeoutInterval :any
-  constructor(private httpClient:HttpClient) { }
+  constructor(private httpClient:HttpClient,private store:Store<AppState>) { }
 
 
   login(email:string, password:string):Observable<AuthResponseData>{
@@ -55,11 +59,13 @@ default: return 'Unknown Error Occured'
 
   getUserFromLocalStorage(){
     const stringedUserData = localStorage.getItem('userData')
-    if(stringedUserData){
+    if(stringedUserData!=null){
       const userData = JSON.parse(stringedUserData)
       const expirationDate = new Date(userData.expirateionDate)
       const user = new User(userData.email,userData.token,userData.localId,expirationDate)
    this.runTimeOutInterval(user)
+   console.log(user);
+   
       return user
 
     }else{
@@ -71,10 +77,20 @@ default: return 'Unknown Error Occured'
     const todaysDate = new Date().getTime();
     const expirationDate = user.getexpiryDate().getTime();
     const timeInterval =  expirationDate - todaysDate
+    console.log(timeInterval);
     
     this.timeoutInterval = setTimeout(()=>{
+      this.store.dispatch(LogoutAction())
     
     },timeInterval)
+  }
+
+  logout(){
+    localStorage.removeItem('userData')
+    if(this.timeoutInterval){
+      clearTimeout(this.timeoutInterval)
+      this.timeoutInterval=null
+    }
   }
 
 }

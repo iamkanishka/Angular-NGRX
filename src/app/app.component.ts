@@ -17,13 +17,13 @@ export class AppComponent implements OnInit {
 
 
   constructor(private store:Store<AppState>){
-    
+    this.showLoading = this.store.select(getLoading)
+    this.erroMessage = this.store.select(getErrorMessage)
+    this.store.dispatch(autoLoginAction())
+
   }
 
   ngOnInit(): void {
-      this.showLoading = this.store.select(getLoading)
-      this.erroMessage = this.store.select(getErrorMessage)
-      this.store.dispatch(autoLoginAction())
-
+   
   }
 }
