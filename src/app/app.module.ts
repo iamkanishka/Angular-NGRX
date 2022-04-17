@@ -15,7 +15,9 @@ import { environment } from 'src/environments/environment';
 //import { appReducer } from './Store/app.state';
 
 import { RouterModule } from '@angular/router';
-import {HttpClientModule} from '@angular/common/http'
+import {HttpClientModule} from '@angular/common/http';
+import { LoadingSpinnerComponent } from './shared/components/loading-spinner/loading-spinner.component'
+import { appReducer } from './Store/app.state';
 
 
 
@@ -26,6 +28,7 @@ import {HttpClientModule} from '@angular/common/http'
 
     HomeComponent,
     HeaderComponent,
+    LoadingSpinnerComponent,
 
   ],
   imports: [
@@ -40,7 +43,7 @@ import {HttpClientModule} from '@angular/common/http'
     //you can initialize the reducer in app, if theres is in need of the NGRX process whne the app loads, buy tou can initialize the corresponding NGRX Reducers in teh Corresponding modules 
     // StoreModule.forRoot(appReducer),
     //we can keep the forRoot like with no redicers, and then we can initiate the redicwers in the corresponing module
-    StoreModule.forRoot({}),
+    StoreModule.forRoot(appReducer),
     // Instrumentation must be imported after importing StoreModule (config is optional)
     StoreDevtoolsModule.instrument({
       // maxAge: 25, // Retains last 25 states
@@ -52,6 +55,7 @@ import {HttpClientModule} from '@angular/common/http'
 
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports:[LoadingSpinnerComponent]
 })
 export class AppModule { }

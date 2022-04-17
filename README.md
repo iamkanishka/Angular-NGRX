@@ -78,3 +78,4 @@ So We will be Looking These Angular-NGRX  features and Learn as we go on.
 24. How to Define the NGRX Effect in Angular NGRX Application
 25. Adding Auth Features State for the Auth Module in teh Angular NGRX Application
 26. Save the User Token data from Login in NGRX State in Angular NGRX Application
+27. Implement Shared Loading Spinner Componenet in the NGRX Shared Module

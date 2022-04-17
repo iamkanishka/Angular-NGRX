@@ -26,10 +26,10 @@ export class CounterOutputComponent implements OnInit, OnDestroy {
     //  private store: Store<{counter:{counter:number}}>,
 
     //withcounterState Interface
-   // private store: Store<{ counter: counterState }>
+    private store: Store<{ counter: counterState }>
 
   //Importing  with counter State Interface with App state
-  private store: Store<AppState>
+ // private store: Store<AppState>
 
 
   ) {
