@@ -9,6 +9,8 @@ import { EditPostComponent } from './edit-post/edit-post.component';
 import { StoreModule } from '@ngrx/store';
 import { postReducer } from './State/posts.reducers';
 import { POSTS_STATE_NAME } from './State/posts.selector';
+import { EffectsModule } from '@ngrx/effects';
+import { PostsEffects } from './State/posts.effects';
 
 
 const routes: Routes = [
@@ -34,7 +36,8 @@ const routes: Routes = [
     RouterModule.forChild(routes),
        //you can initialize the reducer in app, if theres is in need of the NGRX process whne the app loads, buy tou can initialize the corresponding NGRX Reducers in teh Corresponding modules 
      StoreModule.forFeature(POSTS_STATE_NAME,postReducer),
-    FormsModule, ReactiveFormsModule 
+    FormsModule, ReactiveFormsModule ,
+    EffectsModule.forFeature([PostsEffects])
   ],
    exports: [RouterModule]
 })

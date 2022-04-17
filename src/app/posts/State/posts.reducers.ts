@@ -1,5 +1,5 @@
 import { createReducer, on } from "@ngrx/store"
-import { addPost, deletePost, editPost } from "./posts.actions"
+import { addPost, deletePost, editPost, loadPostsSuccess } from "./posts.actions"
 import { initialState } from "./posts.state"
 
 
@@ -38,6 +38,15 @@ on(deletePost,(state,{id})=>{
      posts:updatedPosts
  }
 }),
+
+
+on(loadPostsSuccess,(state,action)=>{
+
+    return{
+        ...state,
+        posts:action.posts
+    }
+   }),
 
 // on(deletePost, (state, )=>{
 
