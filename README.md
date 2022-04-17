@@ -87,4 +87,5 @@ So We will be Looking These Angular-NGRX  features and Learn as we go on.
 33. Implement auto Login Functionality in the NGRX Angular Application
 34. Implement  Logout Functionality in the NGRX Angular Application
 35. Get Posts Data from backend HTTP API call using Effects in NGRX Angular 
-36. 
+36. Adding Post Data by making Http API Call by using Effects in NGRX Angular
+37. 

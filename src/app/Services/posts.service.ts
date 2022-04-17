@@ -42,4 +42,18 @@ export class PostsService {
       );
   }
 
+  
+  addPost(postdata:Post ):Observable<{name:string}> {
+  return this.httpClient.post<{name:string}>(
+      'https://ng-complete-guide-2abc1-default-rtdb.firebaseio.com/post.json',
+      postdata,{
+        headers:new HttpHeaders({
+          'custom-header':'Post Request'
+        }),
+        params: new HttpParams().set('custom','hai'),
+       // observe: 'response'
+      }
+    );
+  }
+
 }
