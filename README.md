@@ -91,3 +91,4 @@ So We will be Looking These Angular-NGRX  features and Learn as we go on.
 37. Update and Delete Posts Data with NGRX State Managment in teh Angular
 38. Implement auth User token for http API Calls using HTTP Interceptors in Angular
 39. Access ngrx State in CanActivate Route Guard for Protecting routes in Angular
+40. Fixing the Logout Bug to prevent multiple HTTP API Calls in the NGRX Angular
