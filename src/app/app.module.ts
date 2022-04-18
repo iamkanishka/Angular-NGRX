@@ -15,10 +15,11 @@ import { environment } from 'src/environments/environment';
 //import { appReducer } from './Store/app.state';
 
 import { RouterModule } from '@angular/router';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { LoadingSpinnerComponent } from './shared/components/loading-spinner/loading-spinner.component'
 import { appReducer } from './Store/app.state';
 import { AuthEffects } from './auth/State/auth.effects';
+import { AuthInterceptorService } from './Services/auth-interceptor.service';
 
 
 
@@ -55,7 +56,9 @@ import { AuthEffects } from './auth/State/auth.effects';
   
 
   ],
-  providers: [],
+  providers: [
+    {provide:HTTP_INTERCEPTORS,useClass:AuthInterceptorService, multi:true}
+  ],
   bootstrap: [AppComponent],
   exports:[LoadingSpinnerComponent]
 })

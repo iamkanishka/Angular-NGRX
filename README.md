@@ -89,3 +89,4 @@ So We will be Looking These Angular-NGRX  features and Learn as we go on.
 35. Get Posts Data from backend HTTP API call using Effects in NGRX Angular 
 36. Adding Post Data by making Http API Call by using Effects in NGRX Angular
 37. Update and Delete Posts Data with NGRX State Managment in teh Angular
+38. Implement auth User token for http API Calls using HTTP Interceptors in Angular

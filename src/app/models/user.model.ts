@@ -8,4 +8,9 @@ export class User{
              return this.expirateionDate
          }
 
+         getUserToken(){
+            return this.token
+        }
+
+
 }
