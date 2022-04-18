@@ -13,7 +13,7 @@ import { AppState } from '../Store/app.state';
 })
 export class AuthInterceptorService implements HttpInterceptor {
 
-  constructor(private authInterceptorService: AuthInterceptorService, private store: Store<AppState>) {
+  constructor(private store: Store<AppState>) {
 
   }
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
