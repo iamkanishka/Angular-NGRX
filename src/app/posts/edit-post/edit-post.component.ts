@@ -14,24 +14,24 @@ import { getPostsById } from '../State/posts.selector';
 })
 export class EditPostComponent implements OnInit {
 
-  postForm:FormGroup
- postId:string
- 
-  constructor( private store: Store<AppState>,private activatedRoute:ActivatedRoute, private router:Router){ 
-    this.activatedRoute.paramMap.subscribe((params)=>{
-  
+  postForm: FormGroup
+  postId: string
+
+  constructor(private store: Store<AppState>, private activatedRoute: ActivatedRoute, private router: Router) {
+    this.activatedRoute.paramMap.subscribe((params) => {
+
       this.postId = params.get('id')
       const id = params.get('id')
-      this.store.select(getPostsById,{id }).subscribe((data:Post)=>{
-   this.postForm = new FormGroup({
-          title: new FormControl(data.title,[Validators.required, Validators.minLength(5)]),
-          description: new FormControl(data.description,[Validators.required, Validators.minLength(5)])
-    
+      this.store.select(getPostsById, { id }).subscribe((data: Post) => {
+        this.postForm = new FormGroup({
+          title: new FormControl(data.title, [Validators.required, Validators.minLength(5)]),
+          description: new FormControl(data.description, [Validators.required, Validators.minLength(5)])
+
         })
       })
-      
+
     })
-  
+
   }
   ngOnInit(): void {
   }
@@ -40,39 +40,39 @@ export class EditPostComponent implements OnInit {
     return this.postForm.controls;
   }
 
-  handleDescriptionErrors(){
+  handleDescriptionErrors() {
     const descriptionFormControl = this.postForm.controls.description;
-    if(descriptionFormControl.touched && descriptionFormControl.valid){
-      if(descriptionFormControl.errors.required){
+    if (descriptionFormControl.touched && descriptionFormControl.valid) {
+      if (descriptionFormControl.errors.required) {
         return "Description is required"
       }
-      if(descriptionFormControl.errors.minLength.actualLength!=descriptionFormControl.errors.minLength.requiredLength){
+      if (descriptionFormControl.errors.minLength.actualLength != descriptionFormControl.errors.minLength.requiredLength) {
         return "Description Should be of Minimum 30 Characters length"
       }
     }
   }
 
-  handleTitleErrors(){
+  handleTitleErrors() {
     const tiltleFormControl = this.postForm.controls.description;
-    if(tiltleFormControl.touched && tiltleFormControl.valid){
-      if(tiltleFormControl.errors.required){
+    if (tiltleFormControl.touched && tiltleFormControl.valid) {
+      if (tiltleFormControl.errors.required) {
         return "Title is required"
       }
-      if(tiltleFormControl.errors.minLength.actualLength!=tiltleFormControl.errors.minLength.requiredLength){
+      if (tiltleFormControl.errors.minLength.actualLength != tiltleFormControl.errors.minLength.requiredLength) {
         return "Description Should be of Minimum 30 Characters length"
       }
     }
   }
 
-onUpdatePost(){
-  console.log(this.postForm.value);
-  const post:Post ={
-    id:this.postId,
-    title : this.postForm.value.title,
-    description : this.postForm.value.description
+  onUpdatePost() {
+    console.log(this.postForm.value);
+    const post: Post = {
+      id: this.postId,
+      title: this.postForm.value.title,
+      description: this.postForm.value.description
+    }
+    this.store.dispatch(updatePosts({ post }))
+    this.router.navigate(['/posts'])
   }
-  this.store.dispatch(updatePosts({post}))
-  this.router.navigate(['/posts'])
-}
 
 }

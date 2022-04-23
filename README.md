@@ -93,4 +93,4 @@ So We will be Looking These Angular-NGRX  features and Learn as we go on.
 39. Access ngrx State in CanActivate Route Guard for Protecting routes in Angular
 40. Fixing the Logout Bug to prevent multiple HTTP API Calls in the NGRX Angular
 41. Introduction to NGRX Router Store. Install Router Store for Dispatching Route Actions in Angular
-42. 
+42. Implement Custom Serializer in NgRx Router to store only minimal Data in Router
