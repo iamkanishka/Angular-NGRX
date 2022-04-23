@@ -21,6 +21,7 @@ import { LoadingSpinnerComponent } from './shared/components/loading-spinner/loa
 import { appReducer } from './Store/app.state';
 import { AuthEffects } from './auth/State/auth.effects';
 import { AuthInterceptorService } from './Services/auth-interceptor.service';
+import { CustomSerializer } from './router/custom-serializer';
 
 
 
@@ -56,7 +57,9 @@ import { AuthInterceptorService } from './Services/auth-interceptor.service';
     EffectsModule.forRoot([AuthEffects]),
   
     // Connects RouterModule with StoreModule
-    StoreRouterConnectingModule.forRoot(),
+    StoreRouterConnectingModule.forRoot({
+      serializer:CustomSerializer
+    }),
 
 
   ],
