@@ -11,6 +11,7 @@ import { postReducer } from './State/posts.reducers';
 import { POSTS_STATE_NAME } from './State/posts.selector';
 import { EffectsModule } from '@ngrx/effects';
 import { PostsEffects } from './State/posts.effects';
+import { ViewPostComponent } from './view-post/view-post.component';
 
 
 const routes: Routes = [
@@ -30,7 +31,8 @@ const routes: Routes = [
 @NgModule({
   declarations: [  PostListsComponent,
     AddPostComponent,
-    EditPostComponent],
+    EditPostComponent,
+    ViewPostComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),

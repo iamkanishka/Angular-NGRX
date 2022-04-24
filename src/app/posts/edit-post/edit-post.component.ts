@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
+import { Subscription } from 'rxjs';
 import { Post } from 'src/app/models/posts.model';
 import { AppState } from 'src/app/Store/app.state';
 import { editPost, updatePosts } from '../State/posts.actions';
@@ -17,24 +18,52 @@ export class EditPostComponent implements OnInit {
   postForm: FormGroup
   postId: string
 
+  postSubscribe:Subscription
+
   constructor(private store: Store<AppState>, private activatedRoute: ActivatedRoute, private router: Router) {
-    this.activatedRoute.paramMap.subscribe((params) => {
+    this.createPostForm()
+    this.store.select(getPostsById).subscribe(async(post)=>{
+      console.log(post);
+      
+      if(post && post!=null){
 
-      this.postId = params.get('id')
-      const id = params.get('id')
-      this.store.select(getPostsById, { id }).subscribe((data: Post) => {
-        this.postForm = new FormGroup({
-          title: new FormControl(data.title, [Validators.required, Validators.minLength(5)]),
-          description: new FormControl(data.description, [Validators.required, Validators.minLength(5)])
-
-        })
-      })
+      this.postForm = await new FormGroup({
+              title: new FormControl(post.title, [Validators.required, Validators.minLength(5)]),
+              description: new FormControl(post.description, [Validators.required, Validators.minLength(5)])
+    
+            })
+                    
+      }
 
     })
+
+
+    //Using normal way of getting Post By id in Ngrx using Selector
+    // this.activatedRoute.paramMap.subscribe((params) => {
+
+    //   this.postId = params.get('id')
+    //   const id = params.get('id')
+    //   this.store.select(getPostsById, { id }).subscribe((data: Post) => {
+    //     this.postForm = new FormGroup({
+    //       title: new FormControl(data.title, [Validators.required, Validators.minLength(5)]),
+    //       description: new FormControl(data.description, [Validators.required, Validators.minLength(5)])
+
+    //     })
+    //   })
+
+    // })
 
   }
   ngOnInit(): void {
   }
+
+createPostForm(){
+  this.postForm = new FormGroup({
+    title: new FormControl('', [Validators.required, Validators.minLength(5)]),
+    description: new FormControl('', [Validators.required, Validators.minLength(5)])
+
+  })
+}
 
   get postFormControls() {
     return this.postForm.controls;

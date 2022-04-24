@@ -66,5 +66,10 @@ export class PostsService {
     return this.httpClient.delete(`https://ng-complete-guide-2abc1-default-rtdb.firebaseio.com/post.json?id=${id}`);
   }
 
+  getPostById(id:String):Observable<Post>{
+    return this.httpClient.get<Post>(`https://ng-complete-guide-2abc1-default-rtdb.firebaseio.com/post/${id}.json`);
+
+  }
+
 
 }
