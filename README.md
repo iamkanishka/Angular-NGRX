@@ -99,4 +99,4 @@ So We will be Looking These Angular-NGRX  features and Learn as we go on.
 45. Introduction to Ngrx Entity, Entity Adapters and Entity State, How to use in Angular NGRX APP
 46. Implement CRUD Operations for Posts with NGRX Entity Adapter methods in Angular NGRX
 47. NGRX Entity Selector Adaptor Methods like Select All, Select Entities in Ngrx Angular Application 
-48. 
+48. Remove unwanted Http API Calls i Data is Already Present in Ngrx Store - NGRX Application

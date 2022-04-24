@@ -20,5 +20,6 @@ export const signupSuccess =  createAction(SIGNUP_SUCCESS,props<{user:User,redir
 
 export const autoLoginAction =  createAction(AUTO_LOGIN_ACTION)
 export const LogoutAction =  createAction(LOGOUT_ACTION)
+export const dummyAction =  createAction('[Dummy Action]')
 
 
