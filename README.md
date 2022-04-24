@@ -101,3 +101,4 @@ So We will be Looking These Angular-NGRX  features and Learn as we go on.
 47. NGRX Entity Selector Adaptor Methods like Select All, Select Entities in Ngrx Angular Application 
 48. Remove unwanted Http API Calls i Data is Already Present in Ngrx Store - NGRX Application
 49. Ngrx Entity Configuration Sort Compare - NGRX 
+50. Introduction to NGRX Data. Simpify entity Store, effects and actions using NGRX Data - Angular
