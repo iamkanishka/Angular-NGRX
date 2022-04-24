@@ -96,3 +96,4 @@ So We will be Looking These Angular-NGRX  features and Learn as we go on.
 42. Implement Custom Serializer in NgRx Router to store only minimal Data in Router
 43. Use Router State Params in the Selectors to get Simple Post Data in Ngrx Angular Application
 44. Using Ngrx Router Store in teh Effects to get the posts datat in Ngrx Angular Application
+45. Introduction to Ngrx Entity, Entity Adapters and Entity State, How to use in Angular NGRX APP
