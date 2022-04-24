@@ -7,7 +7,13 @@ import { PostListsComponent } from './post-lists/post-lists.component';
 import { AddPostComponent } from './add-post/add-post.component';
 import { EditPostComponent } from './edit-post/edit-post.component';
 import { StoreModule } from '@ngrx/store';
-import { postReducer } from './State/posts.reducers';
+
+//importing normal postreducer 
+//import { postReducer } from './State/posts.reducers';
+
+//importing entity based postreducer 
+import { postReducer } from './State/post.reducer.entity';
+
 import { POSTS_STATE_NAME } from './State/posts.selector';
 import { EffectsModule } from '@ngrx/effects';
 import { PostsEffects } from './State/posts.effects';

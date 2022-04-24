@@ -5,8 +5,13 @@ import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 import { Post } from 'src/app/models/posts.model';
 import { AppState } from 'src/app/Store/app.state';
-import { editPost, updatePosts } from '../State/posts.actions';
-import { getPostsById } from '../State/posts.selector';
+import { editPost, updatePosts ,updatePostswithEntity} from '../State/posts.actions';
+//Importing for normal ngrx selector
+//import { getPostsById } from '../State/posts.selector';
+
+//Importing for normal ngrx selector
+import { getPostsById } from '../State/posts.selector.entity';
+
 
 @Component({
   selector: 'app-edit-post',
@@ -26,7 +31,7 @@ export class EditPostComponent implements OnInit {
       console.log(post);
       
       if(post && post!=null){
-
+      this.postId =  post.id
       this.postForm = await new FormGroup({
               title: new FormControl(post.title, [Validators.required, Validators.minLength(5)]),
               description: new FormControl(post.description, [Validators.required, Validators.minLength(5)])
@@ -100,7 +105,18 @@ createPostForm(){
       title: this.postForm.value.title,
       description: this.postForm.value.description
     }
-    this.store.dispatch(updatePosts({ post }))
+   
+   //Normal Ngrx Update 
+    //this.store.dispatch(updatePosts({ post }))
+   
+   // NGRX update with Effect 
+   console.log(post);
+   
+   this.store.dispatch(updatePostswithEntity({ post }))
+
+
+    
+
     this.router.navigate(['/posts'])
   }
 

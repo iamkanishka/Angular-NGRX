@@ -4,8 +4,12 @@ import { Observable } from 'rxjs';
 import { Post } from 'src/app/models/posts.model';
 import { AppState } from 'src/app/Store/app.state';
 import { deletePost, deletePosts, loadPosts } from '../State/posts.actions';
-import { getPosts,} from '../State/posts.selector';
 
+//Importing for normal ngrx selector
+//import { getPosts } from '../State/posts.selector';
+
+//Importing for normal ngrx selector
+import { getPosts } from '../State/posts.selector.entity';
 
 @Component({
   selector: 'app-post-lists',

@@ -3,7 +3,11 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Post } from 'src/app/models/posts.model';
 import { AppState } from 'src/app/Store/app.state';
-import { getPostsById } from '../State/posts.selector';
+//Importing for normal ngrx selector
+//import { getPostsById } from '../State/posts.selector';
+
+//Importing for normal ngrx selector
+import { getPostsById } from '../State/posts.selector.entity';
 
 @Component({
   selector: 'app-view-post',

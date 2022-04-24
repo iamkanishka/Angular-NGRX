@@ -37,8 +37,6 @@ on(addPostsSuccess,(state,action)=>{
 // }),
 
 on(updatePostsSuccess,(state,action)=>{
-    console.log(action.post);
-    
  const updatedPosts  = state.posts.map((post)=>{
      return action.post.id === post.id? action.post :post
  })

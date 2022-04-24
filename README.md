@@ -97,3 +97,6 @@ So We will be Looking These Angular-NGRX  features and Learn as we go on.
 43. Use Router State Params in the Selectors to get Simple Post Data in Ngrx Angular Application
 44. Using Ngrx Router Store in teh Effects to get the posts datat in Ngrx Angular Application
 45. Introduction to Ngrx Entity, Entity Adapters and Entity State, How to use in Angular NGRX APP
+46. Implement CRUD Operations for Posts with NGRX Entity Adapter methods in Angular NGRX
+47. NGRX Entity Selector Adaptor Methods like Select All, Select Entities in Ngrx Angular Application
+48. 

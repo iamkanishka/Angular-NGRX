@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Post } from 'src/app/models/posts.model';
 import { AppState } from 'src/app/Store/app.state';
@@ -15,7 +16,7 @@ export class AddPostComponent implements OnInit {
   postForm:FormGroup
 
  
-  constructor( private store: Store<AppState>){ 
+  constructor( private store: Store<AppState>, private router: Router){ 
     this.postForm = new FormGroup({
       title: new FormControl(null,[Validators.required, Validators.minLength(5)]),
       description: new FormControl(null,[Validators.required, Validators.minLength(5)])
@@ -61,5 +62,7 @@ onAddPost(){
     description : this.postForm.value.description
   }
   this.store.dispatch(addPosts({post}))
+  this.router.navigate(['/posts'])
+
 }
 }
